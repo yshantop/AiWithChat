@@ -1,0 +1,218 @@
+// 浅色主题
+.theme-light {
+  --bg-primary: #EEF0F6;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #f5f7fa;
+  
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  
+  --border-color: #e6e6e6;
+  --border-color-light: #e0e3ec;
+  
+  --primary-color: #356BFD;
+  --primary-light: #eef2ff;
+  --primary-dark: #2851d9;
+  
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --hover-color: rgba(0, 0, 0, 0.05);
+}
+
+// 深色主题
+.theme-dark {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #363636;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #999999;
+  
+  --border-color: #404040;
+  --border-color-light: #4d4d4d;
+  
+  --primary-color: #4d7eff;
+  --primary-light: #1c2333;
+  --primary-dark: #6691ff;
+  
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --hover-color: rgba(255, 255, 255, 0.05);
+
+  // 1. 输入框和按钮适配
+  .input-area {
+    .input-container {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 6px var(--shadow-color);
+
+      :deep(.el-input__wrapper) {
+        background-color: transparent;
+      }
+
+      :deep(.el-input__inner) {
+        color: var(--text-primary);
+        
+        &::placeholder {
+          color: var(--text-tertiary);
+        }
+      }
+
+      .action-btn {
+        color: var(--text-secondary);
+        
+        &:hover {
+          background-color: var(--hover-color);
+          color: var(--primary-color);
+        }
+        
+        &.send-btn {
+          color: var(--primary-color);
+          
+          &:hover {
+            background-color: var(--primary-light);
+          }
+        }
+      }
+    }
+  }
+
+  // 2. 建议问题适配
+  .suggested-questions {
+    .questions-list {
+      .question-item {
+        background-color: var(--bg-secondary);
+        border-color: var(--border-color);
+        color: var(--text-secondary);
+        
+        &:hover {
+          background-color: var(--primary-light);
+          border-color: var(--primary-color);
+          color: var(--primary-color);
+        }
+
+        &::after {
+          background: radial-gradient(circle, rgba(77, 126, 255, 0.1) 0%, transparent 70%);
+        }
+      }
+    }
+  }
+
+  // 3. 历史记录适配
+  .sidebar {
+    .history-list {
+      .history-group {
+        .group-title {
+          color: var(--text-tertiary);
+        }
+
+        .history-item {
+          color: var(--text-primary);
+          
+          &:hover {
+            background-color: var(--bg-tertiary);
+          }
+          
+          &.active {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+          }
+          
+          .delete-btn {
+            color: var(--text-tertiary);
+
+            &:hover {
+              background-color: rgba(255, 77, 79, 0.1);
+              color: #ff4d4f;
+            }
+          }
+        }
+      }
+    }
+
+    .search-input {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+
+      &:hover {
+        border-color: var(--border-color);
+      }
+
+      &:focus {
+        background-color: var(--bg-secondary);
+        border-color: var(--primary-color);
+      }
+
+      &::placeholder {
+        color: var(--text-tertiary);
+      }
+    }
+  }
+
+  // 4. 代码块适配
+  .markdown-main-style {
+    pre.hljs {
+      background-color: var(--bg-tertiary) !important;
+      border: 1px solid var(--border-color);
+
+      .lang {
+        color: var(--text-secondary);
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      code {
+        color: var(--text-primary);
+      }
+    }
+
+    code {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    // 内联代码
+    p code {
+      color: var(--primary-color);
+      background-color: var(--primary-light);
+    }
+  }
+
+  // 5. 消息内容适配
+  .message {
+    &.user .message-content {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+
+    &.assistant .message-content {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      box-shadow: 0 2px 6px var(--shadow-color);
+    }
+  }
+
+  // 6. 滚动条适配
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    
+    &:hover {
+      background-color: var(--text-tertiary);
+    }
+  }
+
+  // 7. 头部适配
+  .chat-header {
+    .model-switch-container {
+      background-color: var(--bg-tertiary);
+    }
+  }
+}
+
+// 添加平滑过渡
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+} 
